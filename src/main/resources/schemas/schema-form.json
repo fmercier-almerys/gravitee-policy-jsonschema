@@ -1,0 +1,53 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:gravitee:policy:http:jsonschema:configuration:JsonSchemaValidatorPolicyConfiguration",
+  "properties" : {
+    "errorMessage" : {
+      "title": "Http error message",
+      "description": "Http error message to send when request is not valid. Status code is 400 as Bad request.",
+      "type" : "string",
+      "x-schema-form": {
+        "type": "codemirror",
+        "codemirrorOptions": {
+          "placeholder": "Put your error message here or drag'n'drop it",
+          "lineWrapping": true,
+          "lineNumbers": true,
+          "allowDropFileTypes": true,
+          "autoCloseTags": true,
+          "mode": "json",
+          "value": "{\"error\":\"Bad request\"}"
+        }
+      }
+    },
+    "jsonSchema" : {
+      "title": "jsonSchema",
+      "description": "jsonSchema used for request payload validation",
+      "type" : "string",
+      "x-schema-form": {
+        "type": "codemirror",
+        "codemirrorOptions": {
+          "placeholder": "Put your json schema here or drag'n'drop it",
+          "lineWrapping": true,
+          "lineNumbers": true,
+          "allowDropFileTypes": true,
+          "autoCloseTags": true,
+          "mode": "json"
+        }
+      }
+    },
+    "deepCheck" : {
+      "title": "deepCheck",
+      "description": "Validate descendant even if json parent container is invalid",
+      "type" : "boolean"
+    },
+    "validateUnchecked" : {
+      "title": "validateUnchecked",
+      "description": "Unchecked validation means that conditions which would normally cause the processing to stop with an exception are instead inserted into the resulting report. Warning: this means that anomalous events like an unresolvable JSON Reference, or an invalid schema, are masked!",
+      "type" : "boolean"
+    }
+  },
+  "required": [
+    "jsonSchema",
+    "errorMessage"
+  ]
+}
